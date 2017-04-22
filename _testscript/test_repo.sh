@@ -17,14 +17,7 @@ set -ex
 [[ "$mid1" =~ ^[0-9]$ ]] || { echo "Expected MariaDB environ id as 3rd parameter, got ($mid1)" 1>&2; exit 1; }
 [[ -z $MATRIX_OSIMAGE ]] && { echo "Expected docker image as 2nd parameter, got ($MATRIX_OSIMAGE)" 1>&2; exit 1; }
 
-# let's retry few times as `find` may show an error if unrelated folders are deleted in parallel
-retry 5 find . -maxdepth 2 -type f -path "./m$mid1*/container_cleanup.sh" -exec bash {} \;
-
-rm -rf m$mid1*
-
-mkdir m$mid1-system@$MATRIX_OSIMAGE
-
-./plant.sh m"$mid1"
+./replant.sh m$mid1-system@$MATRIX_OSIMAGE
 
 set -x
 m${mid1}*/image_create.sh
