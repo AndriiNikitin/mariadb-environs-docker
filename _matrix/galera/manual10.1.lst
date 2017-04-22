@@ -1,0 +1,11 @@
+_plugin/docker/_testscript/galera_system.sh 10.1.22 ubuntu~12.04
+_plugin/docker/_testscript/galera_system.sh 10.1.22 ubuntu~14.04
+_plugin/docker/_testscript/galera_system.sh 10.1.22 ubuntu~16.04
+
+# _plugin/docker/_testscript/galera_system.sh 10.1.22 centos~5
+_plugin/docker/_testscript/galera_system.sh 10.1.22 centos~6
+_plugin/docker/_testscript/galera_system.sh 10.1.22 centos~7
+
+_plugin/docker/_testscript/galera_system.sh 10.1.22 debian~7
+_plugin/docker/_testscript/galera_system.sh 10.1.22 debian~8
+# _plugin/docker/_testscript/galera_system.sh 10.1.22 debian~9

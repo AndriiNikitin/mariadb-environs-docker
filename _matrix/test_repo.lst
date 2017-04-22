@@ -1,0 +1,89 @@
+# installs 5.5.50 then fails to install 5.5
+# mysql  Ver 15.1 Distrib 5.5.50-MariaDB, for Linux (x86_64) using readline 5.1
+# https://downloads.mariadb.com/MariaDB/mariadb-5.5/yum/rhel/6/x86_64/repodata/repomd.xml: [Errno 14] PYCURL ERROR 22 - "The requested URL returned error: 404 NOT FOUND"
+# Trying other mirror.
+# _plugin/docker/_testscript/test_repo.sh '5.5.50 5.5' centos~6
+
+# installs 5.5.50
+# mysql  Ver 15.1 Distrib 5.5.50-MariaDB, for Linux (x86_64) using readline 5.1
+# then shows error trying 5.5
+# https://downloads.mariadb.com/MariaDB/mariadb-5.5/yum/rhel/7/x86_64/repodata/repomd.xml: [Errno 14] HTTPS Error 404 - Not Found
+# Trying other mirror.
+# To address this issue please refer to the below knowledge base article
+# _plugin/docker/_testscript/test_repo.sh '5.5.50 5.5' centos~7
+
+# [ERROR] Ubuntu version 12.04 LTS has reached End of Life and is no longer supported.
+# _plugin/docker/_testscript/test_repo.sh '5.5.50 5.5 10.0.28 10.0 10.1.20 10.1 10.2' ubuntu~precise
+
+# asked 5.5.50 - installed 5.5.54 (i.e. from debian?)
+# mysql  Ver 15.1 Distrib 5.5.54-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
+# then trying to configure to 5.5 
+# Err http://downloads.mariadb.com trusty/main amd64 Packages
+#  404  NOT FOUND [IP: 51.255.94.155 80]
+# W: Failed to fetch http://downloads.mariadb.com/MariaDB/mariadb-5.5/repo/ubuntu/dists/trusty/main/binary-amd64/Packages  404  NOT FOUND [IP: 51.255.94.155 80]
+#
+# E: Some index files failed to download. They have been ignored, or old ones used instead.
+# _plugin/docker/_testscript/test_repo.sh '5.5.50 5.5 10.0.28 10.0 10.1.20 10.1 10.2' ubuntu~trusty
+
+
+_plugin/docker/_testscript/test_repo.sh '10.0.28 10.0 10.1.20 10.1 10.2' ubuntu~trusty
+
+# installs 10.0.29 instead:
+# mysql  Ver 15.1 Distrib 10.0.29-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
+# then fails to install 10.0.30
+# dpkg: regarding .../mariadb-client-10.0_10.0.30+maria-1~xenial_amd64.deb containing mariadb-client-10.0:^M
+# mariadb-client-core-10.0 conflicts with mysql-client-5.5^M
+#  mariadb-client-10.0 provides mysql-client-5.5 and is to be installed.^M
+# _plugin/docker/_testscript/test_repo.sh '10.0.25 10.0 10.1.20 10.1 10.2' ubuntu~xenial
+
+# yakkety shows Detected Ubuntu but version (yakkety) is not supported.
+# _plugin/docker/_testscript/test_repo.sh '10.0.25 10.0 10.1.20 10.1 10.2' ubuntu~yakkety
+
+# error:
+# The following packages have unmet dependencies:
+# mariadb-client-5.5 : Depends: libmariadbclient18 (>= 5.5.50+maria-1~wheezy) but it is not going to be installed
+#                      Depends: mariadb-client-core-5.5 (>= 5.5.50+maria-1~wheezy) but it is not going to be installed
+# mariadb-server-core-5.5 : Depends: libmariadbclient18 (>= 5.5.50+maria-1~wheezy) but it is not going to be installed
+# _plugin/docker/_testscript/test_repo.sh '5.5.50 5.5 10.0.28 10.0 10.1.20 10.1 10.2' debian~wheezy
+
+_plugin/docker/_testscript/test_repo.sh '5.5 10.0.28 10.0 10.1.20 10.1 10.2' debian~wheezy
+
+# installs 10.0.30 instead from 
+# Get:7 http://security.debian.org/ jessie/updates/main mariadb-client-10.0 amd64 10.0.30-0+deb8u1 [1163 kB]
+# Get:46 http://security.debian.org/ jessie/updates/main mariadb-server-10.0 amd64 10.0.30-0+deb8u1 [5969 kB]
+# Setting up mysql-common (10.0.22+maria-1~jessie) ...^M
+# Setting up mariadb-common (10.0.30-0+deb8u1) ...^M
+# Setting up mariadb-client-core-10.0 (10.0.30-0+deb8u1) ...^M
+# Setting up mariadb-client-10.0 (10.0.30-0+deb8u1) ...^M
+# Setting up mariadb-server-core-10.0 (10.0.30-0+deb8u1) ...^M
+# Setting up libmariadbclient18 (10.0.22+maria-1~jessie) ...^M
+# _plugin/docker/_testscript/test_repo.sh '10.0.22 10.0 10.1.20 10.1 10.2' debian~jessie
+
+_plugin/docker/_testscript/test_repo.sh '10.0 10.1.20 10.1 10.2' debian~jessie
+
+# [ERROR] Detected Debian but version (9.0) is not supported.
+# _plugin/docker/_testscript/test_repo.sh '10.0.22 10.0 10.1.20 10.1 10.2' debian~sid
+# [ERROR] Detected Debian but version (9.0) is not supported.
+# _plugin/docker/_testscript/test_repo.sh '10.1.20 10.1 10.2' debian~stretch
+
+
+# cenots~5 reports
+# Determining fastest mirrors
+# ^[[91mError: Cannot find a valid baseurl for repo: base
+# ^[[0mYumRepo Error: All mirror URLs are not using ftp, http[s] or file.
+#  Eg. Invalid release/
+# _plugin/docker/_testscript/test_repo.sh '10.0.28 10.0' centos~5
+_plugin/docker/_testscript/test_repo.sh '10.0.25 10.0' centos~6
+
+_plugin/docker/_testscript/test_repo.sh '10.0.22 10.0' centos~7
+
+
+# see above 
+# _plugin/docker/_testscript/test_repo.sh '10.1.20 10.1' centos~5
+
+# these seem to pass
+# _plugin/docker/_testscript/test_repo.sh '10.1.20 10.1' centos~6
+# _plugin/docker/_testscript/test_repo.sh '10.1.20 10.1' centos~7
+
+# _plugin/docker/_testscript/test_repo.sh '10.2' centos~6
+# _plugin/docker/_testscript/test_repo.sh '10.2' centos~7

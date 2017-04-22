@@ -1,0 +1,6 @@
+# _plugin/docker/_testscript/deploy.sh 10.0.28 10.1.19 centos~5
+_plugin/docker/_testscript/deploy.sh 10.0.28 10.1.19 centos~6
+_plugin/docker/_testscript/deploy.sh 10.0.28 10.1.19 centos~7
+
+_plugin/docker/_testscript/deploy.sh 10.0.28 10.1.19 debian~7
+_plugin/docker/_testscript/deploy.sh 10.0.28 10.1.19 debian~8

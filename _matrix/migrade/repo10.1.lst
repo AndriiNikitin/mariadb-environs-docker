@@ -1,0 +1,8 @@
+# _plugin/docker/_testscript/deploy.sh 10.0 10.1 centos~5
+_plugin/docker/_testscript/deploy.sh 10.0 10.1 centos~6
+_plugin/docker/_testscript/deploy.sh 10.0 10.1 centos~7
+
+_plugin/docker/_testscript/deploy.sh 10.0 10.1 debian~7
+_plugin/docker/_testscript/deploy.sh 10.0 10.1 debian~8
+# disabled - doesn't work?
+# _plugin/docker/_testscript/deploy.sh 10.0 10.1 debian~9
