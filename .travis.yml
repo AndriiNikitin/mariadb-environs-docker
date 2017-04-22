@@ -1,0 +1,23 @@
+dist: trusty
+sudo: required
+
+services:
+  - docker
+
+install:
+  - set -e
+  - echo "clone parent repo and link this repo as plugin to it"
+  - this_repo=$(pwd)
+  - mkdir ../farm
+  - git clone --depth=1 https://github.com/AndriiNikitin/mariadb-environs ../farm
+  - rm -r ../farm/_plugin/docker
+  - ln -s $this_repo ../farm/_plugin/docker
+  - cd ../farm
+
+env:
+  matrix:
+    - MATRIX_IMAGE=centos~6 MATRIX_MDB_VERSIONS='10.0.22 10.0' 
+
+script:
+  - _plugin/docker/_testscript/test_repo.sh "'$MATRIX_MDB_VERSIONS'" $MATRIX_IMAGE 0
+
