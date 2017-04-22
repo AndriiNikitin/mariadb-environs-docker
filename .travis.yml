@@ -31,5 +31,5 @@ env:
     - MATRIX_IMAGE=centos~6 MATRIX_MDB_VERSIONS='10.0.22 10.0'
 
 script:
-  - _plugin/docker/_testscript/test_repo.sh "'$MATRIX_MDB_VERSIONS'" $MATRIX_IMAGE 0
+  - _plugin/docker/_testscript/test_repo.sh $MATRIX_MDB_VERSIONS $MATRIX_IMAGE 0
 
