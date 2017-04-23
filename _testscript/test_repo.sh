@@ -55,5 +55,10 @@ m$mid1*/exec-i.sh bash -xe <<EOF
     mysql_upgrade
     mysql --version
     mysqladmin shutdown || :
+    sleep 3
+    if [ "\$(mysql --version)" != *\$version* ] || [ "\$(mysqld --no-defaults --version)" != *\$version* ] ; then
+      >&2 echo 'check failed - actual version mismatch: expected: (\$version) have (\$(mysql --version)) and (\$(mysqld --no-defaults --version))'
+      exit 15
+    fi
   done
 EOF
