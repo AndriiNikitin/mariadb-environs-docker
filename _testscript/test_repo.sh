@@ -2,7 +2,7 @@
 
 echo $@
 
-set -ex
+set -e
 . common.sh
 
 # this will cleanup environs $1 and $2
@@ -31,11 +31,10 @@ fi
 m$mid1*/exec-i.sh bash -xe <<EOF
 
   set -e
+  set -x
   . common.sh
   for version in $mdbversions ; do
     if [ \$(detect_yum) == apt ] ; then
-#      apt-get install -y mariadb-server-\$versionmajor
-      :
       export DEBIAN_FRONTEND=noninteractive
     else
       yum clean all
@@ -56,8 +55,12 @@ m$mid1*/exec-i.sh bash -xe <<EOF
     mysql --version
     mysqladmin shutdown || :
     sleep 3
-    if [ "\$(mysql --version)" != *\$version* ] || [ "\$(mysqld --no-defaults --version)" != *\$version* ] ; then
-      >&2 echo "check failed - actual version mismatch: expected: (\$version) have (\$(mysql --version)) and (\$(mysqld --no-defaults --version))"
+    if ! [[ \$(mysql --version) =~ \$version ]] ; then
+      \>\&2 echo "Client version mismatch: expected: (\$version) have (\$(mysql --version))"
+      exit 15
+    fi
+    if ! [[ \$(mysqld --no-defaults --version) =~ \$version ]] ; then
+      \>\&2 echo "Server version mismatch: expected: (\$version) have (\$(mysqld --no-defaults --version))"
       exit 15
     fi
   done
