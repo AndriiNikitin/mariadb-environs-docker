@@ -1,0 +1,20 @@
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.4 2.1'   '5.5.50 5.5' centos~6
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.4 2.0' '5.5.50 5.5' centos~7
+
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.2 1.4 2.0 2.1' '5.5 10.0.28 10.0 10.1.20 10.1 10.2' debian~wheezy
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.4 2.0 2.1' '10.0 10.1.20 10.1 10.2' debian~jessie
+
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.2 1.4.4 1.4 2.0 2.1' '5.5.50 5.5 10.0.28 10.0 10.1.20 10.1 10.2' ubuntu~trusty
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.4.3 1.4 2.0.4 2.1' '10.0.28 10.0 10.1.20 10.1 10.2' ubuntu~xenial
+
+
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.2 2.1'   '10.0.22 10.0' centos~6
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '1.4.4 2.1' '10.0.25 10.0' centos~7
+
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '2.0.5 2.1'   '10.1.20 10.1' centos~6
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '2.0 2.1'   '10.1.19 10.1' centos~7
+
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '2.0.5 2.1'   '10.2.2 10.2' centos~6
+_plugin/docker/_testscript/mariadb_repo_setup.sh 1 '2.0.2 2.1'   '10.2.2 10.2' centos~7
+
+

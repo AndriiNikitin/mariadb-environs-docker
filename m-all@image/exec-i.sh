@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -i __pref`'`'__wwid bash
+docker exec -i __pref`'`'__wwid bash "$@"
