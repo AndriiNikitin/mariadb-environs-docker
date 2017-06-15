@@ -7,7 +7,7 @@ MSYS2_ARG_CONV_EXCL="*" docker run -d -it  \
                   -v __workdir/../_depot:/farm/_depot \
                   -v __workdir/../_template:/farm/_template:ro --name=__pref`'`'__wwid m7farm/__image`'`'__version bash
 
-for f in __workdir/../*.sh do
+for f in __workdir/../*.sh; do
   docker cp $f __pref`'`'__wwid:/farm/
 done
 
