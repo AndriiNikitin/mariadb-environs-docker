@@ -40,6 +40,6 @@ done
 
 mkdir $workdir/var
 
-cp -rL _template/install_m-branch_dep.sh $workdir/var
+cp -rL _template/install_m-version_dep.sh $workdir/var
 cp common.sh $workdir/var
 
