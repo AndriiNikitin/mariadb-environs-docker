@@ -1,3 +1,6 @@
 #!/bin/bash
-cd __workdir
-docker build --tag m7farm/__image`'`'__version . 
+
+version=__version
+
+( cd __workdir
+docker build --tag m7farm/__image${version//\~} . )

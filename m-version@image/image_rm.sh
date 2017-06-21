@@ -1,3 +1,5 @@
 #!/bin/bash
 
-docker rmi m7farm/__image`'`'__version
+version=__version
+
+docker rmi m7farm/__image${version//~}
