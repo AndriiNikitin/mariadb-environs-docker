@@ -12,4 +12,4 @@ for f in __workdir/../*.sh ; do
   docker cp $f __pref`'`'__wwid:/farm/
 done
 
-docker exec -i __pref`'`'__wwid bash -x ./plant.sh m0
+docker exec -i __pref`'`'__wwid bash ./plant.sh m0
